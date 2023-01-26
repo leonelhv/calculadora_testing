@@ -30,56 +30,46 @@ describe('AppComponent', () => {
     );
   });
 
-  it('should multiply 2 numbers', () => {
+  it('should multiply 2 numbers, multiplicacion(num1: number, num2: number)', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
 
-    app.dato1 = '7';
-    app.dato2 = '8';
-    app.operacion = 'multiplicacion';
-    app.onOperacion();
+    const mockData = { valor1: 1, valor2: 3 };
+    const expectedResult = 3;
 
-    const expectResult = 56;
-
-    expect(app.resultado).toEqual(expectResult);
+    const result = app.multiplicacion(mockData.valor1, mockData.valor2);
+    expect(result).toEqual(expectedResult);
   });
-  it('should divide 2 numbers', () => {
+
+  it('should divide 2 numbers, division(num1: number, num2: number)', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
+    const mockData = { valor1: 12, valor2: 3 };
+    const expectedResult = 4;
 
-    app.dato1 = '18';
-    app.dato2 = '2';
-    app.operacion = 'division';
-    app.onOperacion();
-
-    const expectResult = 9;
-
-    expect(app.resultado).toEqual(expectResult);
+    const result = app.division(mockData.valor1, mockData.valor2);
+    expect(result).toEqual(expectedResult);
   });
-  it('should addition 2 numbers', () => {
+
+  it('should addition 2 numbers, suma(num1: number, num2: number)', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
 
-    app.dato1 = '7';
-    app.dato2 = '8';
-    app.operacion = 'suma';
-    app.onOperacion();
+    const mockData = { valor1: 1, valor2: 3 };
+    const expectedResult = 4;
 
-    const expectResult = 15;
-
-    expect(app.resultado).toEqual(expectResult);
+    const result = app.suma(mockData.valor1, mockData.valor2);
+    expect(result).toEqual(expectedResult);
   });
-  it('should subtract 2 numbers', () => {
+
+  it('should subtract 2 numbers, resta(num1: number, num2: number)', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
 
-    app.dato1 = '17';
-    app.dato2 = '8';
-    app.operacion = 'resta';
-    app.onOperacion();
+    const mockData = { valor1: 12, valor2: 3 };
+    const expectedResult = 9;
 
-    const expectResult = 9;
-
-    expect(app.resultado).toEqual(expectResult);
+    const result = app.resta(mockData.valor1, mockData.valor2);
+    expect(result).toEqual(expectedResult);
   });
 });

@@ -20,20 +20,32 @@ export class AppComponent {
 
     switch (this.operacion) {
       case 'suma':
-        this.resultado = dato1 + dato2;
+        this.resultado = this.suma(dato1, dato2);
         break;
       case 'resta':
-        this.resultado = dato1 - dato2;
+        this.resultado = this.resta(dato1, dato2);
         break;
       case 'multiplicacion':
-        this.resultado = dato1 * dato2;
+        this.resultado = this.multiplicacion(dato1, dato2);
         break;
       case 'division':
-        this.resultado = dato1 / dato2;
+        this.resultado = this.division(dato1, dato2);
         break;
       default:
         this.resultado = 'Seleccione una de las operaciones';
         break;
     }
+  }
+  suma(num1: number, num2: number) {
+    return num1 + num2;
+  }
+  resta(num1: number, num2: number) {
+    return num1 - num2;
+  }
+  multiplicacion(num1: number, num2: number) {
+    return num1 * num2;
+  }
+  division(num1: number, num2: number) {
+    return num1 / num2;
   }
 }
