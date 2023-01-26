@@ -11,27 +11,29 @@
       <form
         class="w-full space-y-6"
         #formCalc="ngForm"
-        (submit)="onOperacion(selectOperacion.value)"
+        (submit)="onOperacion()"
       >
         <div class="w-full">
           <div class="relative">
             <input
-              type="text"
+              type="number"
               class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
               placeholder="Primer Número"
               [(ngModel)]="dato1"
               name="dato1"
+              required
             />
           </div>
         </div>
         <div class="w-full">
           <div class="relative">
             <input
-              type="text"
+              type="number"
               class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
               placeholder="Segundo Número"
               [(ngModel)]="dato2"
               name="dato2"
+              required
             />
           </div>
         </div>
@@ -39,8 +41,9 @@
           <div class="relative">
             <select
               class="block px-3 py-2 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm w-52 focus:outline-none focus:ring-primary-500 focus:border-primary-500"
-              name="operaciones"
-              #selectOperacion
+              name="operacion"
+              [(ngModel)]="operacion"
+              required
             >
               <option value="">Selecciona una opción</option>
               <option value="suma">Suma</option>
@@ -53,17 +56,18 @@
         <div>
           <span class="block w-full rounded-md shadow-sm">
             <button
+              [disabled]="formCalc.invalid"
               type="submit"
-              class="py-2 px-4 bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg"
+              class="py-2 px-4 bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg disabled:bg-indigo-300"
             >
-              Search
+              Calcular
             </button>
           </span>
         </div>
       </form>
 
-      <div class="mt-4">
-        {{ resultado }}
+      <div class="mt-4 text-center" *ngIf="formCalc.submitted">
+        El resultado es {{ resultado }}
       </div>
     </div>
   </div>

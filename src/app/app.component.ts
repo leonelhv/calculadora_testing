@@ -10,15 +10,15 @@ export class AppComponent {
 
   dato1: string = '';
   dato2: string = '';
-  resultado = 0;
-
-  onOperacion(operacion: string) {
-    if (!operacion) return;
+  resultado: number | string = 0;
+  operacion = '';
+  onOperacion() {
+    if (!this.operacion) return;
 
     const dato1 = Number(this.dato1);
     const dato2 = Number(this.dato2);
 
-    switch (operacion) {
+    switch (this.operacion) {
       case 'suma':
         this.resultado = dato1 + dato2;
         break;
@@ -31,8 +31,8 @@ export class AppComponent {
       case 'division':
         this.resultado = dato1 / dato2;
         break;
-
       default:
+        this.resultado = 'Seleccione una de las operaciones';
         break;
     }
   }
